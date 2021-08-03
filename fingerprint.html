@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>FingerprintJS</title>
+  <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+    body{
+      font-family: 'Sans'
+    }
+    .fancy{
+      font-family: 'Fjalla One', cursive;
+    }
+  </style>
+  <script src="fp.js"></script>
+</head>
+<body>
+  <center>
+    <h3 style="margin-top: 60px">Your browser fingerprint is:</h3>
+    <h1 id="fp" class="fancy"></h1>
+  </center>
+  <script>
+    function initFingerprintJS() {
+    // Initialize an agent at application startup.
+    const fpPromise = FingerprintJS.load()
+
+    // Get the visitor identifier when you need it.
+    fpPromise
+      .then(fp => fp.get())
+      .then(result => {
+        // This is the visitor identifier:
+        const visitorId = result.visitorId
+        console.log(visitorId)
+      document.getElementById('fp').innerHTML = visitorId
+      })
+  }
+    document.getElementById('fp').innerHTML = fp.get();
+  </script>
+</body>
+</html>
