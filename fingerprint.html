@@ -11,17 +11,19 @@
   <script>
     (function initFingerprintJS() {
     // Initialize an agent at application startup.
-    const fpPromise = FingerprintJS.load()
+    //const fpPromise = FingerprintJS.load()
 
     // Get the visitor identifier when you need it.
-    fpPromise
-      .then(fp => fp.get())
-      .then(result => {
-        // This is the visitor identifier:
-        const visitorId = result.visitorId
-        console.log(visitorId)
-      document.getElementById('fp').innerHTML = visitorId
-      })
+//     fpPromise
+//       .then(fp => fp.get())
+//       .then(result => {
+//         // This is the visitor identifier:
+//         const visitorId = result.visitorId
+//         console.log(visitorId)
+//       document.getElementById('fp').innerHTML = visitorId
+//       })
+      
+      document.getElementById('fp').innerHTML = FingerprintJS.sources.canvas()
   })()
   </script>
 </body>
