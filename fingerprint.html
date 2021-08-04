@@ -11,9 +11,9 @@
   <script>
     (function initFingerprintJS() {
     // Initialize an agent at application startup.
-//     const fpPromise = FingerprintJS.load("canvas")
+    const fpPromise = FingerprintJS.load()
     
-    const fpPromise = FingerprintJS.load({canvas: true});
+//     const fpPromise = FingerprintJS.load({canvas: true});
 //       document.getElementById('fp').innerHTML = fingerprint
 
     // Get the visitor identifier when you need it.
