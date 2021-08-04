@@ -13,8 +13,13 @@
     // Initialize an agent at application startup.
 //     const fpPromise = FingerprintJS.load()
     
+      //只用canvas因素计算
     const fingerprint = FingerprintJS.hashComponents(FingerprintJS.sources.canvas())
     document.getElementById('fp').innerHTML = fingerprint
+      
+      //除开canvas之外的所有因素计算
+//       const pp = FingerprintJS.loadSources(FingerprintJS.sources,{debug:false},["canvas"])()
+//       pp.then(fp=>{console.log(FingerprintJS.hashComponents(fp))})
 
     // Get the visitor identifier when you need it.
 //     fpPromise
