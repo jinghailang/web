@@ -52,7 +52,7 @@
 // platform
 // screenFrame
 // screenResolution
-      const excludeSources = ["contrast","cookiesEnabled","domBlockers","forcedColors","hdr","indexedDB","invertedColors","languages","localStorage","monochrome","openDatabase","plugins","reducedMotion","sessionStorage","touchSupport","vendor","vendorFlavors"];
+      const excludeSources = ["contrast","cookiesEnabled","domBlockers","forcedColors","hdr","indexedDB","invertedColors","languages","localStorage","monochrome","openDatabase","plugins","reducedMotion","sessionStorage","touchSupport","vendor","vendorFlavors","math"];
       const pp = FingerprintJS.loadSources(FingerprintJS.sources,{debug:false},excludeSources)();
       pp.then(fp=>{
         const fingerprint = FingerprintJS.hashComponents(fp);
