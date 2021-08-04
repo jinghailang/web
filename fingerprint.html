@@ -14,12 +14,50 @@
 //     const fpPromise = FingerprintJS.load()
     
       //只用canvas因素计算
-    const fingerprint = FingerprintJS.hashComponents(FingerprintJS.sources.canvas())
-    document.getElementById('fp').innerHTML = fingerprint
+//     const fingerprint = FingerprintJS.hashComponents(FingerprintJS.sources.canvas())
+//     document.getElementById('fp').innerHTML = fingerprint
       
-      //除开canvas之外的所有因素计算
-//       const pp = FingerprintJS.loadSources(FingerprintJS.sources,{debug:false},["canvas"])()
-//       pp.then(fp=>{console.log(FingerprintJS.hashComponents(fp))})
+      //需要排除的因素
+// contrast
+// cookiesEnabled
+// domBlockers
+// forcedColors
+// hdr
+// indexedDB
+// invertedColors
+// languages
+// localStorage
+// monochrome
+// openDatabase
+// plugins
+// reducedMotion
+// sessionStorage
+// touchSupport
+// vendor
+// vendorFlavors
+
+//使用的因素
+// audio
+// canvas
+// fonts
+// fontPreferences
+// math
+// timezone
+// colorDepth
+// colorGamut
+// cpuClass
+// deviceMemory
+// hardwareConcurrency
+// osCpu
+// platform
+// screenFrame
+// screenResolution
+      const excludeSources = ["contrast","cookiesEnabled","domBlockers","forcedColors","hdr","indexedDB","invertedColors","languages","localStorage","monochrome","openDatabase","plugins","reducedMotion","sessionStorage","touchSupport","vendor","vendorFlavors"];
+      const pp = FingerprintJS.loadSources(FingerprintJS.sources,{debug:false},excludeSources)();
+      pp.then(fp=>{
+        const fingerprint = FingerprintJS.hashComponents(fp);
+        document.getElementById('fp').innerHTML = fingerprint;
+      });
 
     // Get the visitor identifier when you need it.
 //     fpPromise
