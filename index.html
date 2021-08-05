@@ -37,15 +37,17 @@ clipboard.on('error', function(e) {
 
       const item = new clipboard.ClipboardItem({
         "text/plain": new Blob(
-          ["<i>Markup</i> <b>text</b>. Paste me into a rich text editor."],
-          { type: "text/plain" }
-        ),
-        "text/plain": new Blob(
           ["Fallback markup text. Paste me into a rich text editor."],
           { type: "text/plain" }
-        ),
+        )
       });
-      await clipboard.write([item]);
+      const item2 = new clipboard.ClipboardItem({
+        "text/plain": new Blob(
+          ["<i>Markup</i> <b>text</b>. Paste me into a rich text editor."],
+          { type: "text/plain" }
+        )
+      });
+      await clipboard.write([item,item2]);
 }
     
 </script>
