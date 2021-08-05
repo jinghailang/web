@@ -25,12 +25,28 @@ clipboard.on('error', function(e) {
     console.error('Trigger:', e.trigger);
 });
     </script>
-    <script src="./clipboard-polyfill.promise.js"></script>
-<button onclick="copy()">Copy text!</button>
+    <script src="clipboard-polyfill.promise.js"></script>
+<button onclick="handler()">Copy text!</button>
 <script>
   // `clipboard` is defined on the global `window` object.
   function copy() {
-    clipboard.writeText("hello world!");
+    clipboard.writeText("hello world!");     
   }
+  async function handler() {
+      console.log("Previous clipboard contents:", await clipboard.read());
+
+      const item = new clipboard.ClipboardItem({
+        "text/plain": new Blob(
+          ["<i>Markup</i> <b>text</b>. Paste me into a rich text editor."],
+          { type: "text/plain" }
+        ),
+        "text/plain": new Blob(
+          ["Fallback markup text. Paste me into a rich text editor."],
+          { type: "text/plain" }
+        ),
+      });
+      await clipboard.write([item]);
+}
+    
 </script>
 </html>
