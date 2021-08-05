@@ -25,4 +25,12 @@ clipboard.on('error', function(e) {
     console.error('Trigger:', e.trigger);
 });
     </script>
+    <script src="./clipboard-polyfill.promise.js"></script>
+<button onclick="copy()">Copy text!</button>
+<script>
+  // `clipboard` is defined on the global `window` object.
+  function copy() {
+    clipboard.writeText("hello world!");
+  }
+</script>
 </html>
